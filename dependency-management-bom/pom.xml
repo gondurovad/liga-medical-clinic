@@ -16,6 +16,7 @@
     <properties>
         <!--        Проектные настройки\версии-->
         <mybatis.version>3.5.5</mybatis.version>
+        <spring.boot.amqp>2.7.4</spring.boot.amqp>
     </properties>
 
     <dependencyManagement>
@@ -33,7 +34,6 @@
                 <version>${springboot.test.version}</version>
                 <scope>test</scope>
             </dependency>
-
 
             <dependency>
                 <groupId>liga.medical</groupId>
