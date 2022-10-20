@@ -1,6 +1,6 @@
 package liga.medical.medicalmonitoring.core.solid.antiL;
 
-public class TuberculosisDisease implements Disease{
+public class TuberculosisDisease implements Disease {
 
     public TuberculosisDisease() {
     }

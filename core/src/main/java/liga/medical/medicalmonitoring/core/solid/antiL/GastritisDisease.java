@@ -1,6 +1,6 @@
 package liga.medical.medicalmonitoring.core.solid.antiL;
 
-public class GastritisDisease implements Disease{
+public class GastritisDisease implements Disease {
 
     public GastritisDisease() {
     }
