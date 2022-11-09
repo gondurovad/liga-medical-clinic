@@ -2,10 +2,12 @@ package liga.medical.medicalmonitoring.core.serviceImpl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import liga.medical.common.dto.MessageType;
+import liga.medical.common.dto.RabbitMessageDTO;
 import liga.medical.medicalmonitoring.api.service.RabbitRouterService;
+import liga.medical.medicalmonitoring.core.annotations.DBLog;
 import liga.medical.medicalmonitoring.core.config.ExchangeConfig;
-import liga.medical.messageanalyzer.dto.MessageDTO;
-import liga.medical.messageanalyzer.dto.MessageType;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +23,13 @@ public class RabbitRouterServiceImpl implements RabbitRouterService {
         this.objectMapper = objectMapper;
     }
 
+    @DBLog
     @Override
     public void routeMessageWithExchange(String message) {
         rabbitTemplate.setExchange(ExchangeConfig.DIRECT_EXCHANGE_NAME);
 
         try {
-            MessageDTO messageDto = objectMapper.readValue(message, MessageDTO.class);
+            RabbitMessageDTO messageDto = objectMapper.readValue(message, RabbitMessageDTO.class);
             rabbitTemplate.convertAndSend(messageDto.getType().toString(), message);
             System.out.println(String.format("The router forwarded the message with the type [%s].", messageDto.getType().toString()));
         } catch (JsonProcessingException e) {

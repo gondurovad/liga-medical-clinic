@@ -37,9 +37,13 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
             <version>${spring.boot.amqp}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.7.4</version>
+        </dependency>
 
         <dependency>
-            <!--        Эта зависимость тянет компоненты спринга их тоже нужно сканировать-->
             <groupId>liga.medical</groupId>
             <artifactId>common-services</artifactId>
         </dependency>

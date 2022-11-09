@@ -1,7 +1,7 @@
 package liga.medical.medicalmonitoring.core.service;
 
+import liga.medical.common.dto.QueueNames;
 import liga.medical.medicalmonitoring.api.service.RabbitRouterService;
-import liga.medical.medicalmonitoring.dto.QueueNames;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
